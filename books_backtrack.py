@@ -8,6 +8,7 @@ def backtrack(arr, index, subarrays, max_sum):
     for i in range(len(subarrays)):
         if sum(subarrays[i]) + arr[index] <= max_sum:
             subarrays[i].append(arr[index])
+            # print(subarrays)
             num_subarrays, solution = backtrack(arr, index + 1, subarrays, max_sum)
             if num_subarrays < min_subarrays:
                 min_subarrays = num_subarrays
@@ -56,11 +57,11 @@ for i in array:
 
 
 min_subarrays, result = backtrack(available_questions, 0, [], max_capacity)
-
-for i in range(len(result)):
-    x = []
-    for j in result[i]:
-        mapped_chapter = question_chapter_packing[j].pop()
-        x.extend(mapped_chapter)
-    final_answer.append(x)
-print(final_answer)
+print(result)
+# for i in range(len(result)):
+#     x = []
+#     for j in result[i]:
+#         mapped_chapter = question_chapter_packing[j].pop()
+#         x.extend(mapped_chapter)
+#     final_answer.append(x)
+# print(final_answer)
